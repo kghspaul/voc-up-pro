@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Vocabulary Upgrade Pro | 深度學習版</title>
+    
     <meta name="referrer" content="no-referrer">
-
+    
+    <title>LexiShift | 單字轉生術</title>
     <style>
         :root {
             --charcoal: #333333;
@@ -62,7 +63,7 @@
         /* Card Setup */
         .scene {
             width: 100%;
-            height: 600px; /* 稍微加高以容納長例句 */
+            height: 600px;
             max-height: 80vh;
             perspective: 1000px;
             margin-top: 10px;
@@ -235,6 +236,7 @@
             vertical-align: middle;
             flex-shrink: 0;
         }
+        .audio-inline-btn:active { background-color: var(--khaki); color: white; }
         
         /* Controls Area */
         .controls-area {
@@ -291,27 +293,27 @@
 <body>
 
 <header>
-    <h1>VOCABULARY UPGRADE PRO</h1>
-    <p class="subtitle">單字轉生術：前進大學英文</p>
+    <h1>LexiShift</h1>
+    <p class="subtitle">單字轉生術：用字全面升級</p>
 </header>
 
 <div class="container">
     <div class="scene">
         <div class="card" onclick="flipCard()">
             <div class="card-face front">
-                <div class="front-label">Basic Word (題目)</div>
+                <div class="front-label">Original Word (題目)</div>
                 <div class="word-basic" id="basicWord">Make</div>
                 
                 <div class="basic-sentence-box">
                     "<span id="basicSentence">The technology makes us communicate easily.</span>"
                 </div>
 
-                <div class="tap-hint">Tap for Advanced Vocabulary</div>
+                <div class="tap-hint">Tap to Shift</div>
             </div>
 
             <div class="card-face back">
                 <div class="back-header">
-                    <span>Suggested Upgrades</span>
+                    <span>Transformed Words</span>
                     <span style="font-size: 1.2rem;">↴</span>
                 </div>
                 <div class="scroll-container" id="synonymsContainer">
@@ -336,7 +338,7 @@
 </div>
 
 <script>
-    // --- Data: 30 Words with POS, COLLOCATIONS, and TAIWAN/GSAT CONTEXT SENTENCES ---
+    // --- Data: Updated Content v6.2 (Google Voice Ver.) ---
     const vocabularyData = [
         { 
             basic: "Make", 
@@ -461,12 +463,12 @@
                     origTrans: "為英文電影加上字幕可以提升非母語人士的觀影體驗。" 
                 },
                 { 
-                    word: "Boost", pos: "vt.", kk: "/bust/", def: "促進；推動；使增長", 
-                    pattern: "boost + confidence/economy", alert: "比喻為 '推進器'",
-                    rewrite: "Receiving praise from teachers can significantly boost a student's confidence and motivation to learn.", 
-                    rewriteTrans: "獲得老師的讚美可以顯著提升學生的自信心與學習動力。",
-                    origEx: "The government issued consumption vouchers to boost the domestic economy during the recession.", 
-                    origTrans: "政府在經濟衰退期間發放消費券以推動國內經濟。" 
+                    word: "Elevate", pos: "vt.", kk: "/ˈɛləˌvet/", def: "提升 (地位、層次)；舉起", 
+                    pattern: "elevate + status/mind", alert: "常用於抽象概念的提升",
+                    rewrite: "Reading classic literature elevates one's mind and cultural literacy, distinguishing it from casual reading.", 
+                    rewriteTrans: "閱讀經典文學能提升一個人的心智與文化素養，這與隨意閱讀不同。",
+                    origEx: "The promotion elevated him to a management position, giving him more responsibilities in the company.", 
+                    origTrans: "這次升遷將他提升到了管理職位，讓他在公司承擔更多責任。" 
                 }
             ]
         },
@@ -615,12 +617,12 @@
                     origTrans: "排放未經處理的廢水對當地的河流生態系統有害。" 
                 },
                 { 
-                    word: "Harmful", pos: "adj.", kk: "/ˈhɑrmfəl/", def: "造成傷害的", 
-                    pattern: "be harmful to + N", alert: "比 Bad 正式一點",
-                    rewrite: "Excessive exposure to social media can be harmful to a teenager's self-esteem and body image.", 
-                    rewriteTrans: "過度接觸社群媒體可能對青少年的自尊心和身體形象有害。",
-                    origEx: "Second-hand smoke is harmful to non-smokers, especially young children and the elderly.", 
-                    origTrans: "二手菸對非吸菸者有害，特別是幼童與長者。" 
+                    word: "Adverse", pos: "adj.", kk: "/æd'vɝs/", def: "不利的；負面的", 
+                    pattern: "adverse effect/impact/conditions", alert: "通常放在名詞前修飾",
+                    rewrite: "Excessive exposure to blue light from screens can have adverse effects on students' sleep quality.", 
+                    rewriteTrans: "過度暴露於螢幕藍光下可能對學生的睡眠品質產生負面影響。",
+                    origEx: "The drug was quickly withdrawn from the market due to reports of severe adverse reactions.", 
+                    origTrans: "該藥物因嚴重不良反應的報告而迅速從市場上撤回。" 
                 }
             ]
         },
@@ -691,24 +693,24 @@
             ]
         },
         { 
-            basic: "Big", 
+            basic: "Big / Huge", 
             basicEx: "It makes a big difference.",
             synonyms: [
                 { 
-                    word: "Tremendous", pos: "adj.", kk: "/trɪˈmɛndəs/", def: "巨大的；極好的", 
-                    pattern: "tremendous amount/effort", alert: "語氣非常強烈",
-                    rewrite: "The support from his family gave him tremendous courage to face the difficult exam.", 
-                    rewriteTrans: "家人的支持給了他巨大的勇氣去面對這場困難的考試。",
-                    origEx: "The semiconductor industry has a tremendous impact on Taiwan's economic growth.", 
-                    origTrans: "半導體產業對台灣的經濟成長有巨大的影響。" 
+                    word: "Substantial", pos: "adj.", kk: "/səb'stænʃəl/", def: "大量的；實質的", 
+                    pattern: "substantial amount/number", alert: "強調份量、價值或重要性",
+                    rewrite: "The scholarship provided a substantial amount of money, allowing her to focus on her studies without working part-time.", 
+                    rewriteTrans: "這筆獎學金提供了大量的金額，讓她能專注學業而無需打工。",
+                    origEx: "There is a substantial difference between the two political proposals regarding energy policy.", 
+                    origTrans: "這兩個關於能源政策的政治提案之間有實質的差異。" 
                 },
                 { 
-                    word: "Significant", pos: "adj.", kk: "/sɪgˈnɪfəkənt/", def: "重大的；顯著的", 
-                    pattern: "significant impact/change", alert: "強調重要性而非體積",
-                    rewrite: "Volunteering experience plays a significant role in university admission interviews.", 
-                    rewriteTrans: "志工經驗在大學入學面試中扮演了重大的角色。",
-                    origEx: "There has been a significant increase in the number of electric scooters on the streets of Kaohsiung.", 
-                    origTrans: "高雄街頭的電動機車數量有了顯著的增加。" 
+                    word: "Immense", pos: "adj.", kk: "/ɪ'mɛns/", def: "極大的；巨大的", 
+                    pattern: "immense pressure/value", alert: "強調廣大無邊或程度極深",
+                    rewrite: "High school seniors facing the university entrance exam are often under immense pressure from both school and family.", 
+                    rewriteTrans: "面對大學入學考試的高三生通常承受來自學校和家庭的巨大壓力。",
+                    origEx: "The National Palace Museum is of immense historical value, housing thousands of ancient artifacts.", 
+                    origTrans: "故宮博物院具有極大的歷史價值，收藏了數千件古文物。" 
                 }
             ]
         },
@@ -823,28 +825,6 @@
             ]
         },
         { 
-            basic: "Also", 
-            basicEx: "It is cheap. Also, it is good.",
-            synonyms: [
-                { 
-                    word: "Furthermore", pos: "adv.", kk: "/ˈfɝðɚˌmɔr/", def: "此外 (進一步論述)", 
-                    pattern: "用於疊加論點", alert: "語氣比 Also 強",
-                    rewrite: "Plastic pollution harms marine life; furthermore, microplastics can enter the human food chain.", 
-                    rewriteTrans: "塑膠污染傷害海洋生物；此外，微塑膠可能進入人類食物鏈。",
-                    origEx: "The new policy will reduce traffic congestion; furthermore, it will lower air pollution levels in the city.", 
-                    origTrans: "新政策將減少交通擁塞；此外，它還將降低城市的空氣污染程度。" 
-                },
-                { 
-                    word: "Moreover", pos: "adv.", kk: "/mɔrˈovɚ/", def: "再者；而且", 
-                    pattern: "用於補充更有力的理由", alert: "與 Furthermore 通用",
-                    rewrite: "Studying abroad is expensive; moreover, adapting to a new culture can be mentally stressful.", 
-                    rewriteTrans: "出國留學很昂貴；再者，適應新文化在心理上可能很有壓力。",
-                    origEx: "Cycling is an eco-friendly mode of transport; moreover, it is an excellent form of aerobic exercise.", 
-                    origTrans: "騎自行車是一種環保的交通方式；而且，它是極佳的有氧運動。" 
-                }
-            ]
-        },
-        { 
             basic: "Recently", 
             basicEx: "Recently, people use AI.",
             synonyms: [
@@ -937,20 +917,20 @@
             basicEx: "I like fruits, for example, apples.",
             synonyms: [
                 { 
-                    word: "For instance", pos: "phrase", kk: "/fɔr ˈɪnstəns/", def: "例如", 
-                    pattern: "與 for example 通用", alert: "可放在句首、句中或句尾",
-                    rewrite: "Many extracurricular activities, for instance, Model UN, can improve public speaking skills.", 
-                    rewriteTrans: "許多課外活動，例如模擬聯合國，可以提升公開演講技巧。",
-                    origEx: "Taiwan is famous for its tropical fruits, for instance, mangoes and wax apples.", 
-                    origTrans: "台灣以熱帶水果聞名，例如芒果和蓮霧。" 
-                },
-                { 
                     word: "To illustrate", pos: "phrase", kk: "/tu ˈɪləˌstret/", def: "舉例說明", 
                     pattern: "通常接完整的句子", alert: "用例子來解釋觀點",
                     rewrite: "To illustrate the impact of sleep deprivation, the teacher showed a chart comparing test scores and sleep hours.", 
                     rewriteTrans: "為了舉例說明睡眠不足的影響，老師展示了一張比較考試成績與睡眠時數的圖表。",
                     origEx: "To illustrate how the new app works, the developer gave a live demonstration.", 
                     origTrans: "為了舉例說明新App如何運作，開發者進行了現場演示。" 
+                },
+                { 
+                    word: "To cite an example", pos: "phrase", kk: "/saɪt/", def: "舉例來說 (引用例子)", 
+                    pattern: "To cite an example, S + V", alert: "較正式的寫法",
+                    rewrite: "Taiwan has many high mountains; to cite an example, Jade Mountain is the tallest peak in East Asia.", 
+                    rewriteTrans: "台灣有許多高山；舉例來說，玉山是東亞的第一高峰。",
+                    origEx: "Many tech giants started in garages; to cite an example, Apple was founded in a garage in California.", 
+                    origTrans: "許多科技巨頭始於車庫；舉例來說，蘋果就是在加州的車庫創立的。" 
                 }
             ]
         },
@@ -976,25 +956,70 @@
                 }
             ]
         },
+        // --- NEW ADDITIONS ---
         { 
-            basic: "People", 
-            basicEx: "People should follow rules.",
+            basic: "Know / Realize", 
+            basicEx: "I know how important it is.",
             synonyms: [
                 { 
-                    word: "Individuals", pos: "n.", kk: "/ˌɪndəˈvɪdʒʊəlz/", def: "個人；個體", 
-                    pattern: "強調個體責任", alert: "比 People 正式",
-                    rewrite: "Individuals must take responsibility for their own carbon footprint to fight climate change.", 
-                    rewriteTrans: "個人必須為自己的碳足跡負責，以對抗氣候變遷。",
-                    origEx: "The law protects the rights of individuals against discrimination.", 
-                    origTrans: "法律保障個人的權利免受歧視。" 
+                    word: "Comprehend", pos: "vt.", kk: "/ˌkɑmprɪ'hɛnd/", def: "理解；領會 (深度了解)", 
+                    pattern: "comprehend + wh-clause / N", alert: "比 understand/know 更正式",
+                    rewrite: "It is difficult for many adults to comprehend why teenagers are so obsessed with social media trends.", 
+                    rewriteTrans: "對許多成年人來說，很難理解為什麼青少年對社群媒體趨勢如此著迷。",
+                    origEx: "She failed to comprehend the seriousness of the situation until it was too late.", 
+                    origTrans: "她未能領會情況的嚴重性，直到為時已晚。" 
                 },
                 { 
-                    word: "The public", pos: "n.", kk: "/ðə ˈpʌblɪk/", def: "大眾；公眾", 
-                    pattern: "指社會全體", alert: "視為集合名詞",
-                    rewrite: "The public is advised to wear masks on public transportation to prevent the spread of the flu.", 
-                    rewriteTrans: "建議大眾在大眾運輸工具上配戴口罩，以防止流感傳播。",
-                    origEx: "The mayor promised to be more transparent with the public regarding the city's budget.", 
-                    origTrans: "市長承諾在城市預算方面對大眾更加透明。" 
+                    word: "Grasp", pos: "vt.", kk: "/græsp/", def: "掌握；領悟 (抓住要點)", 
+                    pattern: "grasp + concept/idea/meaning", alert: "指「抓住」抽象概念",
+                    rewrite: "With the help of visual aids, students were finally able to grasp the complex concept of quantum mechanics.", 
+                    rewriteTrans: "在視覺輔助工具的幫助下，學生們終於能夠掌握量子力學的複雜概念。",
+                    origEx: "It took him a while to grasp the rules of the board game, but he eventually won.", 
+                    origTrans: "他花了一段時間才掌握桌遊的規則，但最終他贏了。" 
+                }
+            ]
+        },
+        { 
+            basic: "Decide", 
+            basicEx: "He decided to study abroad.",
+            synonyms: [
+                { 
+                    word: "Determine", pos: "vt.", kk: "/dɪ'tɝmɪn/", def: "決定；查明 (強調因果)", 
+                    pattern: "determine + to V / determine + outcome", alert: "表示事物是決定性因素",
+                    rewrite: "Your attitude towards failure will determine your future success more than your intelligence.", 
+                    rewriteTrans: "你面對失敗的態度比你的智力更能決定你未來的成功。",
+                    origEx: "The police are using CCTV footage to determine the exact cause of the traffic accident.", 
+                    origTrans: "警方正利用監視器畫面來查明交通事故的確切原因。" 
+                },
+                { 
+                    word: "Resolve", pos: "vi./vt.", kk: "/rɪ'zɑlv/", def: "下定決心；解決", 
+                    pattern: "resolve to V", alert: "強調堅定的誓言",
+                    rewrite: "After visiting the orphanage, she resolved to dedicate her life to helping underprivileged children.", 
+                    rewriteTrans: "參觀孤兒院後，她下定決心要奉獻一生幫助貧困兒童。",
+                    origEx: "The labor dispute was eventually resolved through peaceful negotiation between the union and the management.", 
+                    origTrans: "這場勞資糾紛最終透過工會與管理層之間的和平談判解決了。" 
+                }
+            ]
+        },
+        { 
+            basic: "Dangerous", 
+            basicEx: "It is dangerous to swim here.",
+            synonyms: [
+                { 
+                    word: "Hazardous", pos: "adj.", kk: "/'hæzɚdə/", def: "危險的；有害的 (環境/健康)", 
+                    pattern: "hazardous to health/safety", alert: "常指化學品或廢棄物危害",
+                    rewrite: "Secondhand smoke contains hundreds of chemicals that are hazardous to human health.", 
+                    rewriteTrans: "二手菸含有數百種對人體健康有害的化學物質。",
+                    origEx: "The factory was heavily fined for dumping hazardous waste into the nearby river illegally.", 
+                    origTrans: "這家工廠因非法將危險廢棄物傾倒入附近的河流而被重罰。" 
+                },
+                { 
+                    word: "Treacherous", pos: "adj.", kk: "/'trɛtʃərəs/", def: "凶險的；背叛的 (隱藏危險)", 
+                    pattern: "treacherous road/weather/conditions", alert: "指表面看似安全實則危險",
+                    rewrite: "Driving on the Suhua Highway can be treacherous during the typhoon season due to falling rocks.", 
+                    rewriteTrans: "在颱風季節，由於落石，行駛在蘇花公路上可能會非常凶險。",
+                    origEx: "The strong and unpredictable currents make this part of the coast treacherous for swimmers.", 
+                    origTrans: "強勁且不可預測的水流使得這部分海岸對游泳者來說非常凶險。" 
                 }
             ]
         }
@@ -1005,7 +1030,7 @@
     let currentIndex = 0;
     let isFlipped = false;
     let initialCount = 0;
-    const STORAGE_KEY = 'writing_upgrade_pro_v6';
+    const STORAGE_KEY = 'lexishift_v6_2';
 
     function saveState() {
         const state = {
@@ -1059,8 +1084,8 @@
         if (index >= queue.length) {
             document.querySelector('.scene').innerHTML = `
                 <div style="text-align:center; padding: 40px; color: #444;">
-                    <h2>🎉 Congratulations!</h2>
-                    <p>你已經完成本輪所有單字複習！</p>
+                    <h2>🎉 Mission Complete!</h2>
+                    <p>你已經完成本輪所有單字升級！</p>
                     <button class="btn btn-pass" onclick="resetProgress()">重新開始 (Start Over)</button>
                 </div>
             `;
@@ -1097,7 +1122,6 @@
             const block = document.createElement('div');
             block.className = 'synonym-block';
             
-            // Safe quotes for JS strings in onclick
             const cleanRewrite = syn.rewrite.replace(/'/g, "\\'");
             const cleanOrig = syn.origEx.replace(/'/g, "\\'");
             const cleanWord = syn.word.replace(/'/g, "\\'");
@@ -1106,7 +1130,7 @@
                 <div class="synonym-header">
                     <span class="syn-word">${syn.word}</span>
                     <span class="syn-pos">${syn.pos}</span>
-                    <button class="audio-inline-btn" onclick="event.stopPropagation(); playGoogleAudio('${cleanWord}')">🔊</button>
+                    <button class="audio-inline-btn" onclick="event.stopPropagation(); playAudio('${cleanWord}')">🔊</button>
                     <span class="syn-kk">${syn.kk}</span>
                 </div>
                 <div class="syn-def">${syn.def}</div>
@@ -1118,13 +1142,13 @@
 
                 <div class="ex-section">
                     <span class="ex-label">REWRITE (改寫基礎句)</span>
-                    <span class="ex-en">${syn.rewrite} <button class="audio-inline-btn" onclick="event.stopPropagation(); playGoogleAudio('${cleanRewrite}')">🔊</button></span>
+                    <span class="ex-en">${syn.rewrite} <button class="audio-inline-btn" onclick="event.stopPropagation(); playAudio('${cleanRewrite}')">🔊</button></span>
                     <span class="ex-ch">${syn.rewriteTrans}</span>
                 </div>
 
                 <div class="ex-section" style="margin-bottom:0;">
                     <span class="ex-label">EXAMPLE (道地例句)</span>
-                    <span class="ex-en">${syn.origEx} <button class="audio-inline-btn" onclick="event.stopPropagation(); playGoogleAudio('${cleanOrig}')">🔊</button></span>
+                    <span class="ex-en">${syn.origEx} <button class="audio-inline-btn" onclick="event.stopPropagation(); playAudio('${cleanOrig}')">🔊</button></span>
                     <span class="ex-ch">${syn.origTrans}</span>
                 </div>
             `;
@@ -1144,12 +1168,14 @@
         }, 400);
     }
 
-    function playGoogleAudio(text) {
+    // --- Native Browser TTS (GitHub Safe) ---
+    function playAudio(text) {
         if (!text) return;
-        const encodedText = encodeURIComponent(text);
-        const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encodedText}`;
-        const audio = new Audio(url);
-        audio.play().catch(e => console.error("Audio playback error:", e));
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US'; 
+        utterance.rate = 0.85; 
+        window.speechSynthesis.speak(utterance);
     }
 
     function handleResult(known) {
