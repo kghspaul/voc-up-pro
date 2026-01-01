@@ -6,7 +6,7 @@
     
     <meta name="referrer" content="no-referrer">
     
-    <title>LexiShift | 單字轉生術</title>
+    <title>VOCABULARY UPGRADE</title>
     <style>
         :root {
             --charcoal: #333333;
@@ -46,8 +46,8 @@
             z-index: 100;
         }
 
-        h1 { margin: 0; font-size: 1.1rem; letter-spacing: 1px; }
-        p.subtitle { margin: 4px 0 0; font-size: 0.75rem; color: #ccc; }
+        h1 { margin: 0; font-size: 1.2rem; letter-spacing: 1.5px; font-weight: 800; }
+        p.subtitle { margin: 4px 0 0; font-size: 0.8rem; color: #ccc; letter-spacing: 1px; }
 
         .container {
             width: 100%;
@@ -293,8 +293,8 @@
 <body>
 
 <header>
-    <h1>LexiShift</h1>
-    <p class="subtitle">單字轉生術：用字全面升級</p>
+    <h1>VOCABULARY UPGRADE</h1>
+    <p class="subtitle">單字轉生術：前進大學英文</p>
 </header>
 
 <div class="container">
@@ -338,7 +338,7 @@
 </div>
 
 <script>
-    // --- Data: Updated Content v6.2 (Google Voice Ver.) ---
+    // --- Data: Updated Content v6.2 (With Google TTS Function) ---
     const vocabularyData = [
         { 
             basic: "Make", 
@@ -1030,7 +1030,7 @@
     let currentIndex = 0;
     let isFlipped = false;
     let initialCount = 0;
-    const STORAGE_KEY = 'lexishift_v6_2';
+    const STORAGE_KEY = 'lexishift_v6_4_fixed';
 
     function saveState() {
         const state = {
@@ -1168,14 +1168,18 @@
         }, 400);
     }
 
-    // --- Native Browser TTS (GitHub Safe) ---
+    // --- Google TTS (v6.4 Fix) ---
     function playAudio(text) {
         if (!text) return;
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US'; 
-        utterance.rate = 0.85; 
-        window.speechSynthesis.speak(utterance);
+        
+        // Cancel previous
+        window.speechSynthesis.cancel(); // Safety clear
+
+        const encodedText = encodeURIComponent(text);
+        const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encodedText}`;
+        
+        const audio = new Audio(url);
+        audio.play().catch(e => console.error("Audio playback error:", e));
     }
 
     function handleResult(known) {
